@@ -1,0 +1,70 @@
+PKB006
+2023-11-11
+CN006
+T011
+1
+Tai có mủ ngứa
+Viêm tai ngoài
+PKB007
+2023-11-11
+CN007
+T017
+1
+Bụng to gầy
+Nhiễm giun sán
+PKB008
+2023-11-11
+CN008
+T018
+1
+Ngứa sưng mặt
+Dị ứng
+PKB009
+2023-11-12
+CN009
+T019
+1
+Đau mắt đỏ
+Nhiễm trùng mắt
+PKB010
+2023-11-12
+CN010
+T016
+1
+Tiêu chảy phân lỏng
+Rối loạn tiêu hóa
+PKB011
+2023-11-13
+CN011
+T011
+1
+Tai có mủ ngứa
+Viêm tai giữa
+PKB012
+2023-11-14
+CN012
+T012
+1
+Da có vảy rụng lông
+Nhiễm ghẻ Demodex
+PKB013
+2023-11-15
+CN013
+T015
+1
+Khập khiễng đau khớp
+Viêm khớp
+PKB014
+2023-11-15
+CN014
+T014
+1
+Da có nấm ngứa
+Nhiễm nấm da
+PKB015
+2023-11-15
+CN015
+T013
+1
+Lo lắng căng thẳng
+Căng thẳng

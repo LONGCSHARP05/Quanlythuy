@@ -1,0 +1,50 @@
+T011
+Thuốc nhỏ tai Otibiotic
+Ống
+180
+Điều trị viêm tai giữa và viêm tai ngoài do vi khuẩn và nấm ở chó mèo
+T012
+Thuốc trị ghẻ Demodex
+Chai
+250
+Điều trị ghẻ Demodex ở chó mèo
+T013
+Thuốc an thần Acepromazine
+Viên
+80
+Giảm căng thẳng và lo lắng cho thú cưng trong các tình huống căng thẳng 
+T014
+Thuốc trị nấm Ketoconazole
+Viên
+120
+Điều trị nhiễm nấm da và nấm toàn thân ở chó mèo
+T015
+Thuốc trị viêm khớp Meloxicam
+Viên
+150
+Giảm đau và viêm khớp ở chó mèo
+T016
+Thuốc trị tiêu chảy Kaolin Pectin
+Chai
+90
+Điều trị tiêu chảy cấp tính và mãn tính ở chó mèo
+T017
+Thuốc trị giun sán Praziquantel
+Viên
+60
+Điều trị nhiễm giun sán đường ruột ở chó mèo
+T018
+Thuốc trị dị ứng Cetirizine
+Viên
+70
+Giảm ngứa và các triệu chứng dị ứng ở chó mèo
+T019
+Thuốc nhỏ mắt Tobramycin
+Lọ
+100
+Điều trị nhiễm trùng mắt do vi khuẩn ở chó mèo
+T020
+Thuốc trị viêm da Prednisolone
+Viên
+110
+Giảm viêm da và các triệu chứng dị ứng ở chó mèo
