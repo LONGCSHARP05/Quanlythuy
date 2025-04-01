@@ -1,0 +1,146 @@
+#include <iostream>
+#include <fstream>
+#include <vector>
+#include <string>
+#include <ctime>
+
+class LichTiemPhong {
+private:
+    std::string MaChuNuoi;
+    std::string ThongTinThuCung;
+    std::string NgayTiem;
+    std::string LoaiVacXin;
+    std::string GhiChu;
+
+public:
+    LichTiemPhong() {}
+    
+    LichTiemPhong(std::string maChuNuoi, std::string thongTinThuCung, std::string ngayTiem, std::string loaiVacXin, std::string ghiChu)
+        : MaChuNuoi(maChuNuoi), ThongTinThuCung(thongTinThuCung), NgayTiem(ngayTiem), LoaiVacXin(loaiVacXin), GhiChu(ghiChu) {}
+    
+    void hienThiThongTin() const {
+        std::cout << "Ma Chu Nuoi: " << MaChuNuoi
+                  << "\nThong Tin Thu Cung: " << ThongTinThuCung
+                  << "\nNgay Tiem: " << NgayTiem
+                  << "\nLoai Vac Xin: " << LoaiVacXin
+                  << "\nGhi Chu: " << GhiChu
+                  << "\n-------------------------\n";
+    }
+    
+    std::string getMaChuNuoi() const { return MaChuNuoi; }
+    std::string getNgayTiem() const { return NgayTiem; }
+    void capNhatThongTin();
+    void ghiVaoFile(std::ofstream &file) const;
+};
+
+void LichTiemPhong::ghiVaoFile(std::ofstream &file) const {
+    file << MaChuNuoi << "\n" << ThongTinThuCung << "\n" << NgayTiem << "\n"
+         << LoaiVacXin << "\n" << GhiChu << "\n";
+}
+
+void docDuLieuTuFile(std::vector<LichTiemPhong> &danhSachLichTiem, const std::string &tenFile) {
+    std::ifstream file(tenFile.c_str());
+    if (file.is_open()) {
+        std::string MaChuNuoi, ThongTinThuCung, NgayTiem, LoaiVacXin, GhiChu;
+        while (std::getline(file, MaChuNuoi) && std::getline(file, ThongTinThuCung) &&
+               std::getline(file, NgayTiem) && std::getline(file, LoaiVacXin) &&
+               std::getline(file, GhiChu)) {
+            danhSachLichTiem.push_back(LichTiemPhong(MaChuNuoi, ThongTinThuCung, NgayTiem, LoaiVacXin, GhiChu));
+        }
+        file.close();
+    }
+}
+
+void themLichTiem(std::vector<LichTiemPhong> &danhSachLichTiem) {
+    std::string maChuNuoi, thongTinThuCung, ngayTiem, loaiVacXin, ghiChu;
+    std::cout << "Nhap ma chu nuoi: ";
+    std::cin >> maChuNuoi;
+    std::cin.ignore();
+    std::cout << "Nhap thong tin thu cung: ";
+    std::getline(std::cin, thongTinThuCung);
+    std::cout << "Nhap ngay tiem (yyyy-mm-dd): ";
+    std::getline(std::cin, ngayTiem);
+    std::cout << "Nhap loai vac xin: ";
+    std::getline(std::cin, loaiVacXin);
+    std::cout << "Nhap ghi chu: ";
+    std::getline(std::cin, ghiChu);
+    danhSachLichTiem.push_back(LichTiemPhong(maChuNuoi, thongTinThuCung, ngayTiem, loaiVacXin, ghiChu));
+}
+
+void hienThiDanhSach(const std::vector<LichTiemPhong> &danhSachLichTiem) {
+    std::cout << "\n--- Danh sach lich tiem ---\n";
+    for (size_t i = 0; i < danhSachLichTiem.size(); i++) {
+        danhSachLichTiem[i].hienThiThongTin();
+    }
+}
+
+void timKiemLichTiem(const std::vector<LichTiemPhong> &danhSachLichTiem) {
+    std::string maChuNuoi;
+    std::cout << "Nhap ma chu nuoi can tim: ";
+    std::cin >> maChuNuoi;
+    std::cin.ignore();
+    for (size_t i = 0; i < danhSachLichTiem.size(); i++) {
+        if (danhSachLichTiem[i].getMaChuNuoi() == maChuNuoi) {
+            danhSachLichTiem[i].hienThiThongTin();
+        }
+    }
+}
+
+void nhacNhoLichTiem(const std::vector<LichTiemPhong> &danhSachLichTiem) {
+    std::string ngayHienTai;
+    std::cout << "Nhap ngay hien tai (yyyy-mm-dd): ";
+    std::cin >> ngayHienTai;
+    std::cout << "\n--- Lich tiem sap den ---\n";
+    bool found = false;
+    for (size_t i = 0; i < danhSachLichTiem.size(); i++) {
+        if (danhSachLichTiem[i].getNgayTiem() >= ngayHienTai) { 
+            danhSachLichTiem[i].hienThiThongTin();
+            found = true;
+        }
+    }
+    if (!found) {
+        std::cout << "Khong co lich tiem nao sap den!\n";
+    }
+}
+
+int main() {
+    std::vector<LichTiemPhong> danhSachLichTiem;
+    std::string tenFile = "lich_tiem.txt";
+    docDuLieuTuFile(danhSachLichTiem, tenFile);
+
+    int luaChon;
+    do {
+        std::cout << "\n------ QUAN LY LICH TIEM PHONG ------\n";
+        std::cout << "1. Them lich tiem moi\n";
+        std::cout << "2. Hien thi danh sach lich tiem\n";
+        std::cout << "3. Tim kiem lich tiem theo ma chu nuoi\n";
+        std::cout << "4. Nhac nho lich tiem sap den\n";
+        std::cout << "5. Thoat\n";
+        std::cout << "Chon chuc nang: ";
+        std::cin >> luaChon;
+        std::cin.ignore();
+        
+        switch (luaChon) {
+            case 1:
+                themLichTiem(danhSachLichTiem);
+                break;
+            case 2:
+                hienThiDanhSach(danhSachLichTiem);
+                break;
+            case 3:
+                timKiemLichTiem(danhSachLichTiem);
+                break;
+            case 4:
+                nhacNhoLichTiem(danhSachLichTiem);
+                break;
+            case 5:
+                std::cout << "Thoat chuong trinh.\n";
+                break;
+            default:
+                std::cout << "Lua chon khong hop le, vui long nhap lai!\n";
+        }
+    } while (luaChon != 5);
+    
+    return 0;
+}
+
