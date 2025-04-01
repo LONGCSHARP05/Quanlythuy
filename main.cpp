@@ -7,7 +7,7 @@
 #include "DMChuNuoi.hpp"
 #include "PhieuKhamBenh.hpp"
 #include "PhieuKhamBenh.cpp"
-#include "NhacLichTiem.cpp"
+#include "LichTiemPhong"
 
 #include <thread>
 #include <chrono>
